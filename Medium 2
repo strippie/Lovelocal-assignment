@@ -1,0 +1,22 @@
+def majority_element(nums):
+    if not nums:
+        return []
+
+    limit = len(nums) // 3
+    counts = {}
+    result = []
+
+    for num in nums:
+        if num in counts:
+            counts[num] += 1
+        else:
+            counts[num] = 1
+
+    for num, count in counts.items():
+        if count > limit:
+            result.append(num)
+
+    return result
+nums = list(map(int, input().strip('[]').split(',')))
+out=majority_element(nums)
+print(out)
